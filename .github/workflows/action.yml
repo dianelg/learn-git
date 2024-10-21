@@ -15,7 +15,7 @@ on:
 jobs:
   validate-pull-request:
     name: Validate Pull Request
-    runs-on: Linux
+    runs-on: ubuntu-latest
     steps:
       - id: read-props-from-pr
         name: Read Properties from Pull Request
