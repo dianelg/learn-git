@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: read-props-from-pr
-        name: Read Properties from Pull Request
+        name: Read Properties from Pull Requests
         #uses: dianelg/internal-actions/.github/actions/get-properties-from-pr@master
         uses: actions/checkout@v4
         with: 
