@@ -22,7 +22,7 @@ jobs:
         #uses: dianelg/internal-actions/.github/actions/get-properties-from-pr@master
         uses: actions/checkout@v4
         with: 
-          file_name: release_props/standard/standard_properties.yml
+          file_name: release/standard/standard_properties.yml
           repo_name: "${{ github.repository }}"
           ref: "${{ github.event.pull_request.number }}"
       - id: split-and-process-properties
