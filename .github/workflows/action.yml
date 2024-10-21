@@ -24,8 +24,9 @@ jobs:
         uses: actions/checkout@v4
         with: 
           #file_name: release/standard/standard_properties.yml
-          #repo_name: "${{ github.repository }}"
+          repo_name: "${{ github.repository }}"
           ref: "${{ github.event.pull_request.number }}"
+          
       - id: split-and-process-properties
         name: Split and Process Properties
         run: echo "${{ github.head_ref }}"
