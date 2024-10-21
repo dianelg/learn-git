@@ -12,6 +12,7 @@ run-name: ${{ github.actor }} is learning Github Actions
 on: 
   pull_request:
     types: [opened]
+permissions: write-all
 jobs:
   validate-pull-request:
     name: Validate Pull Request
