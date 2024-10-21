@@ -25,7 +25,12 @@ jobs:
         with: 
           #file_name: release/standard/standard_properties.yml
           #repo_name: "${{ github.repository }}"
-          ref: "${{ github.event.pull_request.number }}"
+          #ref: "${{ github.event.pull_request.number }}"
+          ci: ${{ vars.CI}}
+          lob: ${{ vars.SOD_LOB}}  
+      - run: echo "${{ github.ref_name }}"
+      - run: echo "${{ vars.CI }}"
+      - run: echo "${{ vars.SOD_LOB }}"
       - id: split-and-process-properties
         name: Split and Process Properties
         run: echo "${{ github.head_ref }}"
