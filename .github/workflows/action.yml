@@ -19,7 +19,7 @@ jobs:
     steps:
       - id: read-props-from-pr
         name: Read Properties from Pull Request
-        uses: ./internal-actions/.github/actions/get_propertiesfile_frompr@main
+        uses: /dianelg/internal-actions/.github/actions/get_propertiesfile_frompr@main
         #uses: actions/checkout@v4
         with: 
           file_name: release/standard/standard_properties.yml
