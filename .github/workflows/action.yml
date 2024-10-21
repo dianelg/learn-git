@@ -1,17 +1,38 @@
+  #pre-implementation-phase:  
+    #runs-on: ubuntu-latest
+    #steps:
+      #- uses: actions/checkout@v4
+      #- uses: actions/setup-node@v4
+        #with:
+          #node-version: '20'
+      #- run: echo "$ {{github.head_ref }}"
+
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning Github Actions
 on: 
   pull_request:
     types: [opened]
 jobs:
-  pre-implementation-phase:  
-    runs-on: ubuntu-latest
+  validate-pull-request:
+    name: Validate Pull Request
+    runs-on: Linux
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: echo "$ {{github.head_ref }}"
+      - id: read-props-from-pr
+        name: Read Properties from Pull Request
+        #uses: dianelg/internal-actions/.github/actions/get-properties-from-pr@master
+        uses: actions/checkout@v4
+        with: 
+          file_name: release_props/standard/standard_properties.yml
+          repo_name: "${{ github.repository }}"
+          ref: "${{ github.event.pull_request.number }}"
+      - id: split-and-process-properties
+        name: Split and Process Properties
+        run: echo "${{ github.head_ref }}"
+            
+        
+        
+    
+
       
 
   
