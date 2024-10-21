@@ -9,6 +9,7 @@
 
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning Github Actions
+permissions: write-all
 on: 
   pull_request:
     types: [opened]
@@ -19,11 +20,11 @@ jobs:
     steps:
       - id: read-props-from-pr
         name: Read Properties from Pull Request
-        uses: internal-actions/.github/actions/get_propertiesfile_frompr@main
-        #uses: actions/checkout@v4
+        #uses: internal-actions/.github/actions/get_propertiesfile_frompr@main
+        uses: actions/checkout@v4
         with: 
-          file_name: release/standard/standard_properties.yml
-          repo_name: "${{ github.repository }}"
+          #file_name: release/standard/standard_properties.yml
+          #repo_name: "${{ github.repository }}"
           ref: "${{ github.event.pull_request.number }}"
       - id: split-and-process-properties
         name: Split and Process Properties
